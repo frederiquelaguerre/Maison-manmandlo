@@ -31,6 +31,15 @@ h1 {
 
 }
 
+.carousel-heading {
+  font-size: 9vw; /* Ajuste en fonction de la taille souhaitée */
+  color: #fff; /* Couleur du texte */
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 10%;
+  font-family: 'Miss-Neally', sans-serif;
+}
+
 .carou-caption {
   position: absolute;
   /*bottom: 20%; /* Ajustez la position verticale selon vos besoins */
