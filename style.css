@@ -1,4 +1,6 @@
-
+/* ===========================
+   Polices
+=========================== */
 @font-face {
   font-family: 'Hanken';
   src: url('./fonts/HankenGrotesk.woff') format('woff');
@@ -12,17 +14,26 @@
   font-weight: normal;
   font-style: normal;
 }
-h2{
-  font-family: 'Miss-Neally', sans-serif;
-  font-size: 5rem !important;
+
+/* ===========================
+   Styles Globaux
+=========================== */
+body {
+  font-family: 'Hanken', sans-serif !important;
+}
+
+html {
+  scroll-padding-top: 80px; /* Ajuste selon la hauteur de ta navbar */
 }
 
 a {
   text-decoration: none;
 }
 
-body {
-  font-family: 'Hanken', sans-serif !important;
+
+h2{
+  font-family: 'Miss-Neally', sans-serif;
+  font-size: 5rem !important;
 }
 
 h1 {
@@ -70,12 +81,10 @@ h1 {
   max-width: 600px;
   margin-top: 10%;
   text-shadow: 9px 7px 15px #000000;
-
-
 }
 
 .carousel-item {
-  position: relative; /* Assure-toi que le positionnement relatif est appliqué */
+  position: relative;
 }
 
 /* .carousel-item::before {
@@ -162,6 +171,7 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .bordure {
