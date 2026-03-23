@@ -1,9 +1,12 @@
-
+/* ===========================
+   Polices
+=========================== */
 @font-face {
   font-family: 'Hanken';
   src: url('./fonts/HankenGrotesk.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -11,38 +14,75 @@
   src: url('./fonts/Miss-Neally.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+/* ===========================
+   Styles Globaux
+=========================== */
+body {
+  font-family: 'Hanken', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-padding-top: 80px;
 }
 
 a {
   text-decoration: none;
 }
 
-body {
-  font-family: 'Hanken', sans-serif !important;
+/* Focus visible pour l'accessibilité clavier */
+:focus-visible {
+  outline: 3px solid #AAC263;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+h2 {
+  font-family: 'Miss-Neally', sans-serif;
+  font-size: 5rem !important;
 }
 
 h1 {
   font-family: 'Miss-Neally', sans-serif;
   font-size: 5rem;
+}
 
+.carousel-heading {
+  font-size: 9vw;
+  color: #fff;
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 10%;
+  font-family: 'Miss-Neally', sans-serif;
 }
 
 .carou-caption {
   position: absolute;
-  /*bottom: 20%; /* Ajustez la position verticale selon vos besoins */
   left: 40%;
   transform: translateX(-50%);
   text-align: center;
   padding: 20px;
   border-radius: 10px;
   text-align: left;
+  z-index: 2;
 }
 
 .carou-caption h1 {
-  font-size: 8vw;
+  font-size: 9vw;
   color: #fff;
   margin-top: 10%;
-  z-index: 8;
+}
+
+@media (max-width: 600px) {
+  .carou-caption h1 {
+    font-size: 41px;
+  }
 }
 
 .carou-caption p {
@@ -51,28 +91,10 @@ h1 {
   max-width: 600px;
   margin-top: 10%;
   text-shadow: 9px 7px 15px #000000;
-
-
 }
 
 .carousel-item {
-  position: relative; /* Assure-toi que le positionnement relatif est appliqué */
-}
-
-.carousel-item::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6));
-  z-index: 1; /* Place le gradient au-dessus de l'image */
-}
-
-.carou-caption {
-  position: absolute;
-  z-index: 2; /* Place le texte au-dessus du gradient */
+  position: relative;
 }
 
 /* Bouton */
@@ -88,23 +110,21 @@ h1 {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 18px;
-  width: auto; /* Permet au bouton de s'adapter au contenu */
-  max-width: 100%; /* Empêche le bouton de dépasser le conteneur */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Effet de transition fluide */
+  width: auto;
+  max-width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Effet au survol */
 .button1:hover {
   background-color: #8FA94A;
-  transform: scale(1.05); /* Légère augmentation de taille au survol */
+  transform: scale(1.05);
+  color: white;
 }
 
-/* Media query pour écrans plus petits (mobiles) */
 @media (max-width: 600px) {
   .button1 {
-    width: 100%; /* Le bouton prend toute la largeur disponible */
-
-    font-size: 14px; /* Réduit la taille de la police pour les petits écrans */
+    width: 100%;
+    font-size: 14px;
   }
 }
 
@@ -116,50 +136,142 @@ h1 {
 }
 
 .p-decouvrir {
-  padding: 30px;
+  padding: 20px;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .amenities {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px ;
+  padding: 15px;
   text-decoration: none;
   font-size: 20px !important;
   color: #000000;
 }
 
+.amenities:hover {
+  background-color: #f1f1f1;
+  color: #000000;
+}
 
-
-/* Sous-titre */
+/* Sous-titre section découverte */
 .subtitle {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-
-
-/* Sections */
-.section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-
-
-/* Flèche */
-.arrow {
-  font-size: 1.5rem;
-  color: #333;
-  font-weight: bold;
+  margin-top: 20px;
 }
 
 .bordure {
-  border-bottom:1px solid #ccc;
-  }
+  border-bottom: 1px solid #ccc;
+}
+
+/* Stats container */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #80c0de;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.stat p {
+  font-size: 1rem;
+  margin: 5px 0 0 0;
+}
+
+.bleu {
+  background-color: #E3EFFD;
+}
+
+.titre-bleu {
+  color: #80c0de;
+  font-size: 90px !important;
+  text-align: center;
+}
+
+.p-bleu {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.form-control {
+  margin-top: 20px;
+}
+
+.blank {
+  margin-top: 30px;
+}
+
+/* Section des avis clients */
+.avis-clients {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+/* Titre de la section */
+.avis-titre {
+  font-size: 2.5rem;
+  color: #555;
+  margin-bottom: 40px;
+  font-family: 'Miss-Neally', sans-serif;
+}
+
+/* Conteneur des cartes */
+.avis-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Style des cartes */
+.avis-card {
+  background-color: #e6f0ff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative;
+}
+
+.violet {
+  background-color: #a38be2;
+  color: #fff;
+}
+
+.nom-client {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.avis-texte {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.avis-date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}

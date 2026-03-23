@@ -1,0 +1,23 @@
+#external-rental-detail .main-title{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: blue !important;
+}
+
+#vueper-slides .vueperslides__inner{
+  user-select: none;
+}
+
+.rental-location {
+  color: #80c0de;
+}
+
+.main-title {
+
+  color: #80c0de !important;
+}
+
+#vueper-slides {
+  display: none;
+}
