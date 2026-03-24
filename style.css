@@ -1,4 +1,28 @@
 /* ===========================
+   Variables CSS (palette unifiée)
+=========================== */
+:root {
+  --color-primary:      #AAC263;
+  --color-primary-dark: #8FA94A;
+  --color-accent:       #80c0de;
+  --color-accent-dark:  #5aa3c7;
+  --color-bg:           #f9f9f9;
+  --color-bg-blue:      #E3EFFD;
+  --color-text:         #333;
+  --color-text-muted:   #666;
+  --color-white:        #fff;
+  --color-card-violet:  #a38be2;
+  --color-card-blue:    #61b8d8;
+  --font-heading:       'Miss-Neally', sans-serif;
+  --font-body:          'Hanken', sans-serif;
+  --radius-sm:          10px;
+  --radius-lg:          50px;
+  --shadow-card:        0 4px 20px rgba(0, 0, 0, 0.10);
+  --transition:         0.3s ease;
+  --navbar-height:      70px;
+}
+
+/* ===========================
    Polices
 =========================== */
 @font-face {
@@ -20,16 +44,21 @@
 /* ===========================
    Styles Globaux
 =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Hanken', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
   padding: 0;
 }
 
 html {
-  scroll-padding-top: 80px;
+  scroll-padding-top: var(--navbar-height);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -38,107 +67,235 @@ a {
 
 /* Focus visible pour l'accessibilité clavier */
 :focus-visible {
-  outline: 3px solid #AAC263;
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 3px;
 }
 
-h2 {
-  font-family: 'Miss-Neally', sans-serif;
-  font-size: 5rem !important;
-}
-
+/* ===========================
+   Typographie responsive
+=========================== */
 h1 {
-  font-family: 'Miss-Neally', sans-serif;
-  font-size: 5rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1.1;
 }
 
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 4rem) !important;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  height: var(--navbar-height);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 3vw, 1.5rem) !important;
+  margin-left: 20px;
+  color: var(--color-text) !important;
+}
+
+/* ===========================
+   Hero Carousel
+=========================== */
 .carousel-heading {
-  font-size: 9vw;
-  color: #fff;
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  color: var(--color-white);
   display: block;
   margin-bottom: 1rem;
   margin-top: 10%;
-  font-family: 'Miss-Neally', sans-serif;
+  font-family: var(--font-heading);
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
 }
 
 .carou-caption {
   position: absolute;
-  left: 40%;
-  transform: translateX(-50%);
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
+  left: 5%;
+  top: 0;
+  width: min(600px, 55%);
   text-align: left;
+  padding: 20px;
   z-index: 2;
 }
 
 .carou-caption h1 {
-  font-size: 9vw;
-  color: #fff;
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  color: var(--color-white);
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
   margin-top: 10%;
-}
-
-@media (max-width: 600px) {
-  .carou-caption h1 {
-    font-size: 41px;
-  }
 }
 
 .carou-caption p {
   font-size: 1rem;
-  color: #fff;
-  max-width: 600px;
-  margin-top: 10%;
-  text-shadow: 9px 7px 15px #000000;
+  color: var(--color-white);
+  max-width: 560px;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+  line-height: 1.6;
 }
 
 .carousel-item {
   position: relative;
 }
 
-/* Bouton */
+.carousel-item img {
+  max-height: 90vh;
+  object-fit: cover;
+}
+
+/* Dégradé pour lisibilité du texte sur le carousel */
+.carousel-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .carou-caption {
+    width: 90%;
+    left: 5%;
+  }
+
+  .carousel-item img {
+    max-height: 60vh;
+  }
+}
+
+/* ===========================
+   Boutons
+=========================== */
 .button1 {
-  background-color: #AAC263;
+  background-color: var(--color-primary);
   border: none;
-  color: white;
-  padding: 10px 25px;
+  color: var(--color-white);
+  padding: 12px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 18px;
-  width: auto;
-  max-width: 100%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 30px;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 3;
 }
 
 .button1:hover {
-  background-color: #8FA94A;
+  background-color: var(--color-primary-dark);
   transform: scale(1.05);
-  color: white;
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 600px) {
   .button1 {
     width: 100%;
-    font-size: 14px;
+    font-size: 0.95rem;
   }
 }
 
-/* Navbar */
-.navbar-brand {
-  font-family: 'Miss-Neally', sans-serif;
-  font-size: 25px !important;
-  margin-left: 20px;
+/* Bouton sticky "Réserver" */
+.cta-sticky {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1050;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background-color var(--transition), transform var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-sticky:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Section Découverte
+=========================== */
+.section-decouverte {
+  padding: 60px 0 40px;
 }
 
 .p-decouvrir {
   padding: 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.p-decouvrir ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-decouvrir ul li {
+  padding: 6px 0 6px 1.5rem;
+  position: relative;
+}
+
+.p-decouvrir ul li::before {
+  content: '•';
+  color: var(--color-primary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.p-decouvrir ul ul {
+  margin-top: 4px;
+  padding-left: 1rem;
+}
+
+.p-decouvrir ul ul li::before {
+  content: '–';
+  color: var(--color-accent-dark);
+}
+
+.section-img {
+  width: 100%;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  margin-top: 10px;
+}
+
+/* ===========================
+   Équipements
+=========================== */
+.subtitle {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 10px;
   margin-top: 20px;
-  font-size: 16px;
+  color: var(--color-text);
 }
 
 .amenities {
@@ -147,131 +304,301 @@ h1 {
   align-items: center;
   padding: 15px;
   text-decoration: none;
-  font-size: 20px !important;
-  color: #000000;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  transition: background-color var(--transition);
+  border-radius: var(--radius-sm);
+}
+
+.amenities::after {
+  content: '›';
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+  transition: transform var(--transition);
+}
+
+.amenities[aria-expanded="true"]::after {
+  transform: rotate(90deg);
 }
 
 .amenities:hover {
   background-color: #f1f1f1;
-  color: #000000;
-}
-
-/* Sous-titre section découverte */
-.subtitle {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  color: var(--color-text);
 }
 
 .bordure {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
+  margin: 4px 0;
 }
 
-/* Stats container */
+/* ===========================
+   Stats
+=========================== */
 .stats-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #80c0de;
-  padding: 20px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  padding: 40px 20px;
   text-align: center;
 }
 
 .stat {
   flex: 1;
   margin: 0 10px;
+  color: var(--color-white);
 }
 
 .stat h3 {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin: 0;
+  font-weight: 700;
 }
 
 .stat p {
-  font-size: 1rem;
-  margin: 5px 0 0 0;
+  font-size: 0.95rem;
+  margin: 6px 0 0 0;
+  opacity: 0.9;
 }
 
+/* ===========================
+   Section Contact (bleu)
+=========================== */
 .bleu {
-  background-color: #E3EFFD;
+  background-color: var(--color-bg-blue);
+  padding: 60px 0;
 }
 
 .titre-bleu {
-  color: #80c0de;
-  font-size: 90px !important;
+  color: var(--color-accent-dark);
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
   text-align: center;
 }
 
 .p-bleu {
   color: #444;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .form-control {
-  margin-top: 20px;
+  margin-top: 12px;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid #ccc !important;
+  padding: 10px 14px !important;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-.blank {
-  margin-top: 30px;
+.form-control:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(170, 194, 99, 0.2) !important;
 }
 
-/* Section des avis clients */
+/* ===========================
+   Section Avis Clients
+=========================== */
 .avis-clients {
   text-align: center;
-  padding: 50px 20px;
-  background-color: #fff;
+  padding: 60px 20px;
+  background-color: var(--color-white);
 }
 
-/* Titre de la section */
 .avis-titre {
-  font-size: 2.5rem;
-  color: #555;
-  margin-bottom: 40px;
-  font-family: 'Miss-Neally', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text);
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
 }
 
-/* Conteneur des cartes */
+.avis-subtitle {
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
 .avis-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
 }
 
-/* Style des cartes */
 .avis-card {
   background-color: #e6f0ff;
-  padding: 20px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 310px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
   text-align: left;
   position: relative;
+  padding-bottom: 60px;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.violet {
-  background-color: #a38be2;
-  color: #fff;
+.avis-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
 }
 
-.nom-client {
-  font-size: 1.5rem;
-  font-weight: bold;
+.avis-card.violet {
+  background-color: var(--color-card-violet);
+  color: var(--color-white);
+}
+
+.avis-card.card-blue {
+  background-color: var(--color-card-blue);
+  color: var(--color-white);
+}
+
+.avis-stars {
+  display: flex;
+  gap: 3px;
   margin-bottom: 10px;
 }
 
+.avis-stars span {
+  color: #f5b800;
+  font-size: 1.1rem;
+}
+
+.avis-card.violet .avis-stars span,
+.avis-card.card-blue .avis-stars span {
+  color: #ffe066;
+}
+
+.nom-client {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
 .avis-texte {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.97rem;
+  line-height: 1.6;
 }
 
 .avis-date {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #555;
+  font-size: 0.85rem;
+  font-weight: 600;
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 18px;
+  right: 18px;
+}
+
+/* Contraste date sur fond blanc/clair */
+.avis-card .avis-date {
+  color: var(--color-text-muted);
+}
+
+/* Contraste date sur fond coloré */
+.avis-card.violet .avis-date,
+.avis-card.card-blue .avis-date {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+  background-color: #222;
+  color: rgba(255,255,255,0.75);
+  padding: 40px 20px 24px;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-white);
+  margin-bottom: 6px;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===========================
+   Galerie photos
+=========================== */
+.gallery-section {
+  padding: 60px 0 40px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-grid .gallery-featured {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid .gallery-featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid .gallery-featured {
+    grid-column: span 1;
+  }
 }
