@@ -68,6 +68,48 @@
     "sameAs": ["https://www.airbnb.com/slink/mFYGsiEE"]
   }
   </script>
+
+  <!-- Schema FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment se rendre à Saint-Pierre depuis Fort-de-France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saint-Pierre se trouve à environ 50 km au nord de Fort-de-France, soit 45 à 60 min en voiture via la N2 (côte Caraïbe). La location d'une voiture est recommandée. Des vedettes maritimes relient également Fort-de-France à Saint-Pierre en 30 min selon la saison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Y a-t-il un parking sur place ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, un espace de stationnement est disponible devant la maison. Saint-Pierre est une ville tranquille où le stationnement en bord de mer est facile et gratuit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la distance à la plage ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La maison dispose d'un accès direct à la plage depuis le rez-de-chaussée. Aucune route à traverser : vous êtes littéralement les pieds dans l'eau à quelques mètres de la porte."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de personnes la maison peut-elle accueillir ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La maison peut accueillir jusqu'à 8 personnes grâce à ses trois chambres climatisées : une chambre parentale avec salle de bain privative et vue mer, une chambre côté montagne avec deux lits simples, et une mezzanine côté mer avec lit double."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Lien d'évitement pour les utilisateurs clavier -->
@@ -415,6 +457,64 @@
       </div>
     </section>
 
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-titre">
+      <div class="container">
+        <h2 id="faq-titre" class="faq-titre">Questions fréquentes</h2>
+        <dl class="faq-list">
+
+          <div class="faq-item">
+            <dt>
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+                Comment se rendre à Saint-Pierre depuis Fort-de-France ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd id="faq-1" class="faq-answer" role="region" aria-labelledby="faq-btn-1" hidden>
+              Saint-Pierre se trouve à environ 50 km au nord de Fort-de-France, soit 45 à 60 min en voiture via la N2 (côte Caraïbe). La location d'une voiture est recommandée pour profiter pleinement du nord de l'île. Des navettes maritimes (vedettes) relient également Fort-de-France à Saint-Pierre en 30 min selon la saison.
+            </dd>
+          </div>
+
+          <div class="faq-item">
+            <dt>
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+                Y a-t-il un parking sur place ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd id="faq-2" class="faq-answer" role="region" aria-labelledby="faq-btn-2" hidden>
+              Oui, un espace de stationnement est disponible devant la maison pour accueillir votre véhicule. Saint-Pierre est une ville tranquille où le stationnement en bord de mer est facile et gratuit.
+            </dd>
+          </div>
+
+          <div class="faq-item">
+            <dt>
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
+                Quelle est la distance à la plage ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd id="faq-3" class="faq-answer" role="region" aria-labelledby="faq-btn-3" hidden>
+              La maison dispose d'un accès direct à la plage depuis le rez-de-chaussée — littéralement les pieds dans l'eau. Aucune route à traverser : vous posez votre serviette à quelques mètres de la porte.
+            </dd>
+          </div>
+
+          <div class="faq-item">
+            <dt>
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
+                Combien de personnes la maison peut-elle accueillir ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd id="faq-4" class="faq-answer" role="region" aria-labelledby="faq-btn-4" hidden>
+              La maison peut accueillir jusqu'à 8 personnes grâce à ses trois chambres climatisées : une chambre parentale avec salle de bain privative et vue mer, une chambre côté montagne avec deux lits simples, et une mezzanine côté mer avec lit double.
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -437,11 +537,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Offcanvas navbar
       const offcanvasEl = document.getElementById("navbarOffcanvasLg");
       if (offcanvasEl) {
         const offcanvas = new bootstrap.Offcanvas(offcanvasEl);
         document.querySelectorAll(".nav-link").forEach(link => link.addEventListener("click", () => offcanvas.hide()));
       }
+
+      // FAQ accordéon
+      document.querySelectorAll(".faq-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          const answerId = btn.getAttribute("aria-controls");
+          const answer   = document.getElementById(answerId);
+
+          // Ferme toutes les autres réponses
+          document.querySelectorAll(".faq-question").forEach(other => {
+            if (other !== btn) {
+              other.setAttribute("aria-expanded", "false");
+              document.getElementById(other.getAttribute("aria-controls")).hidden = true;
+            }
+          });
+
+          btn.setAttribute("aria-expanded", String(!expanded));
+          answer.hidden = expanded;
+        });
+      });
     });
   </script>
 </body>
