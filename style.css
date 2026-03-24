@@ -156,8 +156,8 @@ h3 {
   object-fit: cover;
 }
 
-/* Dégradé pour lisibilité du texte sur le carousel */
-.carousel-item::after {
+/* Dégradé uniquement sur le carousel hero pour lisibilité du texte */
+#carouselExampleIndicators .carousel-item::after {
   content: '';
   position: absolute;
   inset: 0;
