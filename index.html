@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Détection de langue — doit être en premier pour une redirection rapide -->
+  <script>
+    (function () {
+      // Ne redirige qu'une seule fois par session
+      if (sessionStorage.getItem('lang-redirected')) return;
+      // Ne redirige pas si le visiteur vient d'une page interne du site
+      var ref = document.referrer;
+      if (ref && ref.indexOf(location.hostname) !== -1) return;
+      // Redirige les navigateurs configurés en anglais
+      if (navigator.language && navigator.language.toLowerCase().indexOf('en') === 0) {
+        sessionStorage.setItem('lang-redirected', '1');
+        location.replace('/en/');
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Location Vacances Saint-Pierre Martinique | Vue Mer, Plage &amp; Montagne Pelée</title>
