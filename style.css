@@ -708,3 +708,35 @@ footer {
     grid-column: span 1;
   }
 }
+
+/* ============================================================
+   Scroll Reveal Animations
+   GPU-accelerated : uniquement opacity et transform
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal       { transform: translateY(30px); }
+  .reveal-left  { transform: translateX(-30px); }
+  .reveal-right { transform: translateX(30px); }
+  .reveal-scale { transform: scale(0.95); }
+
+  .reveal.revealed,
+  .reveal-left.revealed,
+  .reveal-right.revealed,
+  .reveal-scale.revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Ensure gallery images include opacity in their transition when animated */
+  .gallery-grid img.reveal {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow var(--transition);
+  }
+}
