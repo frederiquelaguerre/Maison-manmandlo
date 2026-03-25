@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page introuvable | Maison Manman dlo</title>
+  <meta name="description" content="La page que vous cherchez est introuvable. Retournez à l'accueil de la Maison Manman dlo, location vacances à Saint-Pierre, Martinique.">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .error-section {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(160deg, #f9f9f9 0%, #eaf4fb 100%);
+      overflow: hidden;
+    }
+
+    .error-code {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 18vw, 10rem);
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 0;
+      opacity: 0.35;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .error-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      color: var(--color-accent-dark);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .error-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .button-secondary {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(170, 194, 99, 0.3);
+      color: var(--color-primary);
+    }
+
+    .error-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .error-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .error-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-primary);
+      transition: width 0.25s ease;
+    }
+
+    .error-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .error-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Wave animation ===== */
+    .wave-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-container svg {
+      display: block;
+      width: 200%;
+      animation: wave-drift 8s linear infinite;
+    }
+
+    @keyframes wave-drift {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wave-container svg {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Lien d'évitement -->
+  <a href="#contenu-404" class="visually-hidden-focusable">Aller au contenu principal</a>
+
+  <!-- Bouton Réserver sticky -->
+  <a href="reservation.html" class="cta-sticky" id="cta-sticky-btn" aria-label="Réserver la maison Manman dlo">
+    📅 Réserver
+  </a>
+
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Navigation principale">
+      <a class="navbar-brand" href="index.html" id="nav-brand">Maison Manman dlo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Ouvrir le menu de navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title visually-hidden" id="navbarOffcanvasLgLabel">Menu de navigation</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer le menu"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#section-decouverte" id="nav-discover">Découvrir</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="reservation.html" id="nav-reserve">Réserver</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#section-contact" id="nav-contact">Nous contacter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#avis-clients" id="nav-reviews">Avis</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <div class="lang-switcher" role="navigation" aria-label="Changer de langue">
+                <a href="404.html" class="lang-btn lang-active" id="lang-fr" aria-label="Version française (actuelle)" aria-current="true">🇫🇷 FR</a>
+                <a href="en/404.html" class="lang-btn" id="lang-en" aria-label="English version" hreflang="en">🇬🇧 EN</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu-404">
+    <section class="error-section" aria-labelledby="error-heading">
+
+      <!-- Watermark 404 -->
+      <span class="error-code" aria-hidden="true">404</span>
+
+      <div class="error-content">
+        <h1 class="error-title" id="error-heading" data-fr="Page introuvable" data-en="Page not found">
+          Page introuvable
+        </h1>
+        <p class="error-message" id="error-msg" data-fr="Cette page semble avoir été emportée par les vagues de la baie de Saint-Pierre…" data-en="This page seems to have been swept away by the waves of Saint-Pierre bay…">
+          Cette page semble avoir été emportée par les vagues de la baie de Saint-Pierre…
+        </p>
+
+        <div class="error-buttons">
+          <a href="index.html" class="button1" id="btn-home">Retour à l'accueil</a>
+          <a href="reservation.html" class="button-secondary" id="btn-reserve">Voir nos disponibilités</a>
+        </div>
+
+        <nav class="error-links" aria-label="Liens utiles" id="quick-links">
+          <a href="index.html#section-decouverte" id="link-discover">Découvrir</a>
+          <a href="reservation.html" id="link-reserve">Réserver</a>
+          <a href="index.html#section-contact" id="link-contact">Nous contacter</a>
+          <a href="index.html#avis-clients" id="link-reviews">Avis clients</a>
+        </nav>
+      </div>
+
+      <!-- Wave animation -->
+      <div class="wave-container" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="rgba(128,192,222,0.25)"/>
+          <path d="M0,55 C200,20 400,70 600,45 C800,20 1000,65 1200,45 C1320,32 1380,50 1440,55 L1440,80 L0,80 Z" fill="rgba(128,192,222,0.15)"/>
+        </svg>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Maison Manman dlo</p>
+        <p class="footer-tagline">Saint-Pierre, Martinique</p>
+      </div>
+      <nav class="footer-links" aria-label="Liens du pied de page" id="footer-nav">
+        <a href="index.html#section-decouverte" id="footer-discover">Découvrir</a>
+        <a href="reservation.html" id="footer-reserve">Réserver</a>
+        <a href="index.html#section-contact" id="footer-contact">Nous contacter</a>
+        <a href="index.html#avis-clients" id="footer-reviews">Avis clients</a>
+        <a href="https://www.airbnb.com/slink/mFYGsiEE" target="_blank" rel="noopener noreferrer">Voir sur Airbnb</a>
+        <a href="en/index.html">🇬🇧 English version</a>
+      </nav>
+    </div>
+    <p class="footer-bottom">&copy; 2025 Maison Manman dlo — Tous droits réservés</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      // Détection de langue : URL /en/ ou navigator.language en anglais
+      var isEn = location.pathname.indexOf('/en/') !== -1
+               || (navigator.language && navigator.language.toLowerCase().indexOf('en') === 0);
+
+      if (isEn) {
+        document.documentElement.lang = 'en';
+
+        // Navbar
+        document.getElementById('nav-brand').href        = '/en/';
+        document.getElementById('nav-discover').href     = '/en/#section-discover';
+        document.getElementById('nav-discover').textContent = 'Discover';
+        document.getElementById('nav-reserve').href      = '/en/reservation.html';
+        document.getElementById('nav-reserve').textContent  = 'Book';
+        document.getElementById('nav-contact').href      = '/en/#section-contact';
+        document.getElementById('nav-contact').textContent  = 'Contact us';
+        document.getElementById('nav-reviews').href      = '/en/#avis-clients';
+        document.getElementById('nav-reviews').textContent  = 'Reviews';
+        document.getElementById('lang-fr').href          = '/404.html';
+        document.getElementById('lang-fr').removeAttribute('aria-current');
+        document.getElementById('lang-fr').classList.remove('lang-active');
+        document.getElementById('lang-en').href          = '/en/404.html';
+        document.getElementById('lang-en').setAttribute('aria-current', 'true');
+        document.getElementById('lang-en').classList.add('lang-active');
+
+        // Main content
+        var heading = document.getElementById('error-heading');
+        heading.textContent = heading.dataset.en;
+
+        var msg = document.getElementById('error-msg');
+        msg.textContent = msg.dataset.en;
+
+        document.getElementById('btn-home').textContent = 'Back to home';
+        document.getElementById('btn-home').href        = '/en/';
+        document.getElementById('btn-reserve').textContent = 'Check availability';
+        document.getElementById('btn-reserve').href     = '/en/reservation.html';
+
+        document.getElementById('link-discover').textContent = 'Discover';
+        document.getElementById('link-discover').href        = '/en/#section-discover';
+        document.getElementById('link-reserve').textContent  = 'Book';
+        document.getElementById('link-reserve').href         = '/en/reservation.html';
+        document.getElementById('link-contact').textContent  = 'Contact us';
+        document.getElementById('link-contact').href         = '/en/#section-contact';
+        document.getElementById('link-reviews').textContent  = 'Reviews';
+        document.getElementById('link-reviews').href         = '/en/#avis-clients';
+
+        // Sticky CTA
+        document.getElementById('cta-sticky-btn').href = '/en/reservation.html';
+        document.getElementById('cta-sticky-btn').setAttribute('aria-label', 'Book Maison Manman dlo');
+
+        // Footer
+        document.getElementById('footer-discover').textContent = 'Discover';
+        document.getElementById('footer-discover').href        = '/en/#section-discover';
+        document.getElementById('footer-reserve').textContent  = 'Book';
+        document.getElementById('footer-reserve').href         = '/en/reservation.html';
+        document.getElementById('footer-contact').textContent  = 'Contact us';
+        document.getElementById('footer-contact').href         = '/en/#section-contact';
+        document.getElementById('footer-reviews').textContent  = 'Reviews';
+        document.getElementById('footer-reviews').href         = '/en/#avis-clients';
+
+        document.title = 'Page not found | Maison Manman dlo';
+      }
+
+      // Offcanvas navbar close on link click
+      document.addEventListener('DOMContentLoaded', function () {
+        var offcanvasEl = document.getElementById('navbarOffcanvasLg');
+        if (offcanvasEl) {
+          var offcanvas = new bootstrap.Offcanvas(offcanvasEl);
+          document.querySelectorAll('.nav-link').forEach(function (link) {
+            link.addEventListener('click', function () { offcanvas.hide(); });
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
